@@ -1,0 +1,34 @@
+<%= form_for([:mostkhdmeen, @group], :html=>{:style=>"margin-right:400px;margin-top:50px; width:400px;", :class=>"well" }) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "اسم المجموعة" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field" >
+    <%= f.label "ملاحظات" %>
+    <%= f.text_field :note %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "فتح جميع التطبيقات" %>
+    <%= f.check_box :open_all %>
+  </div>
+  
+  <div class="modal-footer">
+  	<center>
+  	<%= f.submit @edit_flag?"حفظ":"تسجيل المجموعة" , :class=>"btn-large btn-primary"  %>	
+    </center>
+  </div>
+<% end %>

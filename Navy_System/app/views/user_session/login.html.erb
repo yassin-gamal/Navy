@@ -1,0 +1,147 @@
+<style>
+body 
+{
+	background: url('../images/bg222.png');
+	background-repeat:no-repeat;
+	background-size:100%;
+	display: compact;
+}
+</style>	
+
+<br>
+<div role="dialog" class="well"  style=" border-radius: 21px; width:280px; margin-top: 36px; margin-right: -13px;" >
+
+	<div>
+		<div class="modal-header">
+			<h3>قيادة القوات البحرية</h3>
+			<h4>فرع السكرتارية</h4>
+		</div>
+		<br>
+		<div class="modal-body">
+			<%= form_tag :action=>:login do %>
+			<%= select_tag "group", options_from_collection_for_select(@groups, "id", "name"), :prompt => '-- اختر مجموعة --',:style=>"width:250px;" ,:tabindex=>"2","data-remote" => true, "data-url" => "/get_users", "data-type" => :json %> 
+			<br>
+			<div id="username_container">
+				<%= select_tag "username", options_from_collection_for_select(@users, "id", "name"), :prompt => '-- اختر مستخدم --',:style=>"width:250px;" ,:tabindex=>"2" %> 
+			</div>
+			<br>
+			<%= password_field_tag 'password', "",:placeholder=>"كلمة المرور", :style=>"width:235px;" %>
+
+			<br>
+			<div class="modal-footer">
+				<%= submit_tag "الدخـــــــول",:class=>"btn btn-primary" %>
+			</div>
+			<div>
+				<% if  flash[:alert] == "error"%>
+				<% flash[:alert] = "" %>
+				<div class="alert alert-error">
+					البيانات المدخلة خاطئة
+				</div>
+				<% end %>
+			</div> 
+			<%end%>
+		</div>
+	</div>
+</div>
+</div>
+
+<script>
+
+$('#groups_select').change(function(){
+	alert(this.value);
+});
+
+</script>
+
+<script>
+$(document).ready(function() {
+
+	$('#datetimepicker1').datetimepicker({
+		language: 'ar-EG'
+	});
+
+
+	$('#datetimepicker2').datetimepicker({
+		language: 'ar-EG'
+	});
+
+	$("#Menus > li > a").tooltip();
+
+	$('li').click(function(){
+		//select tthe active element in the current list by $("#idOfTheList > .active")
+		$("#"+this.parentElement.getAttribute("id")+" > .active").removeClass("active");
+		this.setAttribute("class","active");
+	});
+
+	$(function () {
+		$('#Menus').tab('show');
+	})
+
+	$('.carousel').carousel({interval: 4000});
+
+	$("#group").bind('ajax:success', function(evt, data, status, xhr){
+      var select = $('#username');
+
+      if (data !== null) {
+        select.removeAttr('disabled');
+        select.empty();
+        $.each(data, function(key, value) {
+          $("<option/>").val(value["id"]).text(value["name"]).appendTo(select);
+        });
+      } else {
+        select.empty();
+        select.attr('disabled', 'disabled');
+      }
+    });
+
+
+
+
+	// $("#group").change(function(){
+	// 	$.ajax({
+	// 		url: "get_users_user_session_path",
+	// 		type: "post",
+	// 		data: 1,
+	// 		success: function(){
+	// 			alert("success");
+
+	// 		},
+	// 		error:function(){
+	// 			alert("failure");
+
+	// 		}   
+	// 	});
+	// });
+// $("#group").on('change', function(evt, data, status, xhr){
+// 	$.ajax({
+// 		url: "/get_users?id="+$('#group :selected').val(),
+// 		type: "get",
+// 		data: 3,
+// 		success: function(){
+// 			alert("success");
+// 			// var select = $('#username');
+// 			// if (data !== null) {
+// 			// 	select.removeAttr('disabled');
+// 			// 	$.each(data, function(key, value) {
+// 			// 		alert("good");
+// 			// 		$("<option/>").val(value[1]).text(value[0]).appendTo(select);
+// 			// 	});
+// 			// } else {
+// 			// 	select.empty();
+// 			// 	select.attr('disabled', 'disabled');
+// 			// }
+
+// 		},
+// 		error:function(){
+// 			alert("failure");
+
+// 		}   
+// 	});
+
+// });
+
+});
+
+
+</script>
+</html>

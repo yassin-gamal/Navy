@@ -1,0 +1,154 @@
+<%= form_for(@membership, :html=>{:style=>"margin-right:450px;margin-top:50px; width:400px; display: block;", :class=>"well" }) do |f| %>
+<% if @membership.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
+
+	<ul>
+		<% @membership.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+
+<div class="field" style="margin:0;padding:0;display:inline">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>رقم الوارد</center> </span>
+	<%= f.number_field :ward_record_id, :style=>"width:235px; "%>
+</div>
+
+	<br />
+	
+<div class="field" >
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>تاريخ الوارد</center> </span>
+	<div dir="ltr" id="datetimepicker1" class="input-append date" data-date-format="dd-mm-yyyy">
+
+		<%= f.text_field :ward_record_date %>
+		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i> </span>
+	</div>
+</div>
+
+
+	<br />
+
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>الرقم العسكرى</center> </span>
+	<%= f.number_field :military_num, :style=>"width:235px; " %>
+</div>
+
+	<br />
+
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>رقم الطلب</center> </span>
+	<%= f.number_field :order_num, :style=>"width:235px; " %>
+</div>
+
+	<br />"
+	
+<div class="field" >
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>تاريخ الطلب</center> </span>
+	<div dir="ltr" id="datetimepicker2" class="input-append date" data-date-format="dd-mm-yyyy">
+		<%= f.text_field :order_date %>
+		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i> </span>
+	</div>
+</div>
+<br />
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>نوع العضوية</center> </span>
+	<%= f.number_field :membership_type_id, :style=>"width:235px; " %>
+</div>
+
+<br />
+
+
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>الرتبة</center> </span>
+	<%= f.select :rank_id, options_from_collection_for_select(@ranks, "id", "name",@membership.rank_id),  :prompt => '-- اختر رتبة --', %> 
+</div>
+
+<br />
+
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>نوع الخدمة</center> </span>
+	<%= f.number_field :service_type_id, :style=>"width:235px; " %>
+</div>
+
+<br />
+
+
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center> اﻷسم</center> </span>
+	<%= f.text_field :name, :style=>"width:235px; " %>
+</div>
+
+<br />
+
+
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center> رقم الدفعة</center> </span>
+	<%= f.number_field :dof3a_num, :style=>"width:235px; " %>
+</div> 
+<br />
+
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>نوع التصديق</center> </span>
+	<%= f.text_field :tasdeq_type, :style=>"width:235px; " %>
+</div>
+
+<br />
+
+<div class="field" >
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center> تاريخ التصديق</center> </span>
+	<div dir="ltr" id="datetimepicker3" class="input-append date" data-date-format="dd-mm-yyyy">
+
+		<%= f.text_field :tasdeq_date %>
+		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i> </span>
+	</div>
+</div>
+
+<br />
+
+<div class="field">
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>رقم الصادر</center> </span>
+	<%= f.number_field :sadr_record_id, :style=>"width:235px; " %>
+</div>
+
+<br />
+
+<div class="field" >
+	<span style="float:right; margin-left: 25px; margin-top: 5px; width: 80px;" class="label label-info"><center>تاريخ الصادر</center> </span>
+	<div dir="ltr" id="datetimepicker4" class="input-append date" data-date-format="dd-mm-yyyy">
+
+		<%= f.text_field :sadr_date %>
+		<span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i> </span>
+	</div>
+</div>
+
+<br />
+
+<div >
+	<center>
+		<%= f.submit "تسجيل", :class=>"btn-large btn-primary" %>
+	</center>
+</div>
+<% end %>
+
+<script>
+	$('#datetimepicker1').datetimepicker({
+		format : 'dd-MM-yyyy',
+	});
+
+	$('#datetimepicker2').datetimepicker({
+		format : 'dd-MM-yyyy',
+	});
+
+	$('#datetimepicker3').datetimepicker({
+		format : 'dd-MM-yyyy',
+	});
+
+	$('#datetimepicker4').datetimepicker({
+		format : 'dd-MM-yyyy',
+	}); 
+</script>

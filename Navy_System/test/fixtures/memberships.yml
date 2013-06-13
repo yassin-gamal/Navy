@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ward_record_id: 1
+  ward_record_date: 2013-06-02
+  military_num: 1
+  order_num: 1
+  order_date: 2013-06-02
+  membership_type_id: 1
+  rank_id: 1
+  service_type_id: 1
+  name: MyString
+  dof3a_num: 1
+  tasdeq_type: MyString
+  tasdeq_date: 2013-06-02
+  sadr_record_id: 1
+  sadr_date: 2013-06-02
+
+two:
+  ward_record_id: 1
+  ward_record_date: 2013-06-02
+  military_num: 1
+  order_num: 1
+  order_date: 2013-06-02
+  membership_type_id: 1
+  rank_id: 1
+  service_type_id: 1
+  name: MyString
+  dof3a_num: 1
+  tasdeq_type: MyString
+  tasdeq_date: 2013-06-02
+  sadr_record_id: 1
+  sadr_date: 2013-06-02

@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ward record:</b>
+  <%= @membership.ward_record_id %>
+</p>
+
+<p>
+  <b>Ward record date:</b>
+  <%= @membership.ward_record_date %>
+</p>
+
+<p>
+  <b>Military num:</b>
+  <%= @membership.military_num %>
+</p>
+
+<p>
+  <b>Order num:</b>
+  <%= @membership.order_num %>
+</p>
+
+<p>
+  <b>Order date:</b>
+  <%= @membership.order_date %>
+</p>
+
+<p>
+  <b>Membership type:</b>
+  <%= @membership.membership_type_id %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%= @membership.rank_id %>
+</p>
+
+<p>
+  <b>Service type:</b>
+  <%= @membership.service_type_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @membership.name %>
+</p>
+
+<p>
+  <b>Dof3a num:</b>
+  <%= @membership.dof3a_num %>
+</p>
+
+<p>
+  <b>Tasdeq type:</b>
+  <%= @membership.tasdeq_type %>
+</p>
+
+<p>
+  <b>Tasdeq date:</b>
+  <%= @membership.tasdeq_date %>
+</p>
+
+<p>
+  <b>Sadr record:</b>
+  <%= @membership.sadr_record_id %>
+</p>
+
+<p>
+  <b>Sadr date:</b>
+  <%= @membership.sadr_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>

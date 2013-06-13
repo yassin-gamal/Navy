@@ -1,0 +1,25 @@
+
+<div class="well" style="margin:20px">
+	<div style="float:right; margin-top: -10px;">
+		<h4>طلب عضوية جديد</h4>
+	</div>
+	
+</div>
+
+
+<div style="float:right;">
+	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
+		<li class="active">
+			<a href=<%= new_membership_path%> >تسجيل طلبات عضوية<i class="con-chevron-left"></i></a>
+		</li>
+
+		<li >
+			<a href=<%= memberships_path%>>بيان طلبات عضوية<i class="icon-chevron-left"></i></a>
+		</li>
+	</ul>
+</div>
+
+
+<%= render 'form' %>
+
+<%= link_to 'Back', memberships_path %>

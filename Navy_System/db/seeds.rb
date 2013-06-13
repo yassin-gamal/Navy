@@ -1,0 +1,31 @@
+# encoding: utf-8
+Group.find_or_create_by_id(:id=>'1', :name=>'الحواسب')
+Group.find_or_create_by_id(:id=>'2', :name=>'المنظومة و المتابعة')
+Group.find_or_create_by_id(:id=>'3', :name=>'الصادر')
+
+User.find_or_create_by_id(:id=>'1', :name=>'هلال حامد', :password=>'123', :group_id=>'1')
+User.find_or_create_by_id(:id=>'2', :name=>'حسام شريف', :password=>'123', :group_id=>'1')
+User.find_or_create_by_id(:id=>'3', :name=>'يحيى السقا', :password=>'123', :group_id=>'1')
+User.find_or_create_by_id(:id=>'4', :name=>'ايهاب', :password=>'123', :group_id=>'3')
+
+Rank.find_or_create_by_id(:id=>'1',:rank_type=>'ضباط', :name=>'فريق')
+Rank.find_or_create_by_id(:id=>'2',:rank_type=>'ضباط', :name=>'لواء')
+Rank.find_or_create_by_id(:id=>'3',:rank_type=>'ضباط', :name=>'عميد')
+Rank.find_or_create_by_id(:id=>'4',:rank_type=>'ضباط', :name=>'عقيد')
+Rank.find_or_create_by_id(:id=>'5',:rank_type=>'ضباط', :name=>'مقدم')
+Rank.find_or_create_by_id(:id=>'6',:rank_type=>'ضباط', :name=>'رائد')
+Rank.find_or_create_by_id(:id=>'7',:rank_type=>'ضباط', :name=>'نقيب')
+Rank.find_or_create_by_id(:id=>'8',:rank_type=>'ضباط', :name=>'ملازم أول')
+Rank.find_or_create_by_id(:id=>'9',:rank_type=>'ضباط', :name=>'ملازم')
+Rank.find_or_create_by_id(:id=>'10',:rank_type=>'ضباط صف', :name=>'مساعد أول')
+Rank.find_or_create_by_id(:id=>'11',:rank_type=>'ضباط صف', :name=>'مساعد')
+Rank.find_or_create_by_id(:id=>'12',:rank_type=>'ضباط صف', :name=>'رقيب أول')
+Rank.find_or_create_by_id(:id=>'13',:rank_type=>'ضباط صف', :name=>'رقيب')
+Rank.find_or_create_by_id(:id=>'14',:rank_type=>'ضباط صف', :name=>'عريف')
+Rank.find_or_create_by_id(:id=>'15',:rank_type=>'ضباط صف', :name=>'طالب متطوع')
+Rank.find_or_create_by_id(:id=>'16',:rank_type=>'جنود', :name=>'جندى')
+
+NavyHotel.find_or_create_by_id(:id=>'1', :name=>'المحروسة')
+NavyHotel.find_or_create_by_id(:id=>'2', :name=>'استراحة قاصد خير')
+NavyHotel.find_or_create_by_id(:id=>'3', :name=>'مصيف فخر البحار')
+

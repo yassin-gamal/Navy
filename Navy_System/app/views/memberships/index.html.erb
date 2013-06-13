@@ -1,0 +1,93 @@
+
+
+<div class="well" style="margin:20px">
+	<div style="float:right; margin-top: -10px;">
+		<h4>بيان بطلبات عضوية دور القوات البحرية</h4>
+	</div>
+</div> 
+
+<div style="float:right;">
+	<ul  style="font: normal 15px Tahoma; margin-top: 30px; margin-right: 25px;" id="sideMenus" class="nav nav-list bs-docs-sidenav affix" >
+		<li>
+			<a href=<%= new_membership_path%> >تسجيل طلبات عضوية<i class="con-chevron-left"></i></a>
+		</li>
+
+		<li  class="active" >
+			<a href=<%= memberships_path%>>بيان طلبات عضوية<i class="icon-chevron-left"></i></a>
+		</li>
+	</ul>
+</div>	
+
+<table style="margin-left:80px; margin-top: 30px; width:65%; float: left;" class="table table-bordered">
+	<tr>
+		<th width="10%">
+		<center>
+			الرقم العسكرى
+		</center></th>
+		<th width="10%">
+		<center>
+			الاسم
+		</center></th>
+		<th width="10%">
+		<center>
+			نوع العضوية
+		</center></th>
+		<th width="5%">
+		<center>
+			الرتبة
+		</center></th>
+		<th width="5%">
+		<center>
+			نوع الخدمة
+		</center></th>
+		<th width="10%">
+		<center>
+			رقم الدفعة
+		</center></th>
+		<th width="10%">
+		<center>
+			رقم الطلب
+		</center></th>
+		<th width="10%">
+		<center>
+			تاريخ الطلب
+		</center></th>
+		<th width="10%">
+		<center>
+			التصديق
+		</center></th>
+		<th width="10%">
+		<center>
+			تاريخ التصديق
+		</center></th>
+		<th width="10%" colspan="3"></th>
+	</tr>
+	
+	<% @memberships.each do |membership| %>
+	<tr>
+		<td><%= membership.military_num %></td>
+		<td><%= membership.name %></td>
+		<td><%= membership.membership_type_id %></td>
+		
+		<td>
+			<%if !membership.rank.blank?%>
+				<%= membership.rank.name %>
+			<%else%>
+				<%= "--" %>
+			<%end%>
+		</td>	
+		<td><%= membership.service_type_id %></td>
+		<td><%= membership.dof3a_num %></td>
+		<td><%= membership.order_num %></td>
+		<td><%= membership.order_date %></td>
+		<td><%= membership.tasdeq_type %></td>
+		<td><%= membership.tasdeq_date %></td>
+		
+		<td><center><button class="btn btn-success"><%= link_to 'تعديل', edit_membership_path(membership) %></button></center></td>
+		<td><center><button class="btn btn-danger"><%= link_to 'حذف', membership_path(membership), method: :delete, data: { confirm: 'حذف المستخدم ؟' } %></center></button></td>
+	<% end %>
+</table>
+
+<br />
+
+
